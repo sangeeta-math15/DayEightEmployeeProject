@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 /**
  * Refactoring the Code to write a Class Method to Compute Employee Wage - Use
  * Class Method and Class
@@ -18,20 +20,33 @@ class EmpWage {
 	public static final int IS_Full_TIME = 1;
 	public static final int IS_Part_Time = 2;
 	public static final int EMP_RATE_PER_HR = 20;
-	public static final int Num_Of_Working_Days = 20;
-	public static final int MAX_HR_IN_MONTH = 100;
-
+	int Num_Of_Working_Days = 20;
+	int MAX_HR_IN_MONTH = 100;
+	
+	
+	int numOfDays(int days)
+	{
+		return Num_Of_Working_Days;
+		
+	}
+	int workingHrs(int hours)
+	{
+		return MAX_HR_IN_MONTH;
+		
+	}
+	
 	public void calculateWage() {
 		System.out.println("Welcome to Employee Wage Computation Program on Master Branch");
 		// while condition use of total working hours or days is reached for a month
 		// Assume 100 hours and 20 days
 		while (totalEmpHr <= MAX_HR_IN_MONTH && totalWorkingDays < Num_Of_Working_Days) {
-			totalWorkingDays++;
+			
 			// use random function gives value 0 or 1
 			int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
 			// print random values
 			System.out.println("Random values=>" + empCheck);
 			// using Switch Cases we are solving the Employee Wage Problem
+			totalWorkingDays++;
 			switch (empCheck) {
 			case 1:
 				empHr = 8; // Employee hour for Full Day
@@ -72,9 +87,18 @@ public class EmployeeWage {
 
 	// Driver Code
 	public static void main(String args[]) {
-		EmpWage emp = new EmpWage();
-
-		emp.calculateWage();
+		//Create object for EmpWage class
+		EmpWage company = new EmpWage();
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Days");
+		int days=sc.nextInt();
+		System.out.println("Enter Hours");
+		int hour=sc.nextInt();
+		
+		company.numOfDays(days);
+		company.workingHrs(hour);
+		company.calculateWage();
 
 	}
 }
